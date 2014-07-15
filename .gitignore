@@ -1,4 +1,5 @@
 /repository
+/workspace
 
 *.gem
 *.rbc
