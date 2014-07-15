@@ -1,0 +1,55 @@
+GIT
+  remote: https://github.com/IluhaAndr/jira-ruby.git
+  revision: 5a6d1851fa8cda8848ad92e514d32f0d4b1ed3c7
+  specs:
+    jira-ruby (0.1.10)
+      activesupport
+      oauth
+
+GIT
+  remote: https://github.com/intridea/hashie.git
+  revision: 59069f13ea067a319584a56674cc02de887b999f
+  specs:
+    hashie (3.2.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.1.4)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.1)
+      tzinfo (~> 1.1)
+    configatron (4.2.0)
+    elasticsearch (1.0.4)
+      elasticsearch-api (= 1.0.4)
+      elasticsearch-transport (= 1.0.4)
+    elasticsearch-api (1.0.4)
+      multi_json
+    elasticsearch-transport (1.0.4)
+      faraday
+      multi_json
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
+    i18n (0.6.11)
+    json (1.8.1)
+    minitest (5.4.0)
+    multi_json (1.10.1)
+    multipart-post (2.0.0)
+    oauth (0.4.7)
+    thor (0.19.1)
+    thread_safe (0.3.4)
+    tzinfo (1.2.1)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  configatron
+  elasticsearch
+  hashie!
+  jira-ruby!
+  json
+  thor

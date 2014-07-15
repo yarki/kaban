@@ -1,0 +1,11 @@
+core:
+    fetchers: ./kaban/fetchers
+
+repository:
+    collections: ./repository/collections
+    schemas: ./repository/schemas
+    mappings: ./repository/mappings
+    endpoints: ./repository/endpoints
+
+workspace:
+    staging: ./workspace
