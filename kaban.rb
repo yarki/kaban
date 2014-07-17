@@ -66,10 +66,11 @@ class Kaban < Thor
 		
 	end
 
-	desc 'sync', 'fetch + map + index'
+	desc 'sync', 'fetch + map + reset + index'
 	def sync
 		fetch
 		map
+		reset
 		index
 	end
 
