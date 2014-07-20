@@ -12,12 +12,20 @@ def fetch(collection: collection, endpoint: endpoint)
 	          }
 	client = JIRA::Client.new(options)
 	puts 'fetching...'
-	output = client.Issue.jql(query, nil, 0, 1000).map{ |issue|
-		doc = {}
-		doc['key'] = issue.key
-		doc['id'] = issue.id
-		doc['fields'] = issue.fields
-		doc
+	output = []
+	max_size = 1000
+	chunk_size = 100
+	iterations = max_size / chunk_size
+	(1..iterations).each { |i|
+		start_at = (i - 1) * chunk_size
+		puts 'chunk %02d: %03d-%03d' % [i, start_at, start_at + chunk_size - 1]
+		client.Issue.jql(query, nil, start_at, chunk_size).map { |issue|
+			doc = {}
+			doc['key'] = issue.key
+			doc['id'] = issue.id
+			doc['fields'] = issue.fields
+			doc
+		}.each { |doc| output << doc }
 	}
 	puts "fetched #{output.length} docs"
 	output
