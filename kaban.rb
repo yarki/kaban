@@ -5,6 +5,7 @@ require 'hashie'
 require 'elasticsearch'
 require 'jira'
 require 'json'
+require 'retriable'
 
 require_relative 'kaban/core/indexer'
 require_relative 'kaban/core/repository'
