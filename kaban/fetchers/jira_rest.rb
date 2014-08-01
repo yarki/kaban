@@ -13,7 +13,7 @@ def fetch(collection: collection, endpoint: endpoint)
 	client = JIRA::Client.new(options)
 	puts 'fetching...'
 	output = []
-	max_size = 1000
+	max_size = 1500
 	chunk_size = 100
 	iterations = max_size / chunk_size
 	(1..iterations).each { |i|
