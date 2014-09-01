@@ -26,8 +26,8 @@ module Indexer
 	def Indexer.index(collection: collection, docs: docs, schema: schema)
 		puts "index '#{collection.name}'"
 		elastic = Elasticsearch::Client.new host: configatron.env.elastic.host, log: configatron.env.elastic.logging
-		docs.each { |doc|
-			elastic.index index: collection.name, type: collection.name, id: doc[schema.primary_key!], body: doc
+		elastic.bulk body: docs.map { |doc| 
+			{ index: {_index: collection.name, _type: collection.name, _id: doc[schema.primary_key!], data: doc} }
 		}
 	end
 
