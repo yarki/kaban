@@ -1,7 +1,9 @@
 module Repository
 	
-	def Repository.collections
-		Dir["#{configatron.repository.collections}/*.yml"].map { |file| load_collection file: file }
+	def Repository.collections(name: name)
+		Dir["#{configatron.repository.collections}/*.yml"]
+			.map { |file| load_collection file: file }
+			.select { |collection| (collection.name == name) || name.nil? }
 	end
 
 	def Repository.load_collection(file: file)
