@@ -1,4 +1,4 @@
-require 'thor'-
+require 'thor'
 require 'configatron'
 require 'yaml'
 require 'hashie'
