@@ -22,7 +22,6 @@ configatron.configure_from_hash(
   )
 )
 
-# Main class
 class Kaban < Thor
   desc 'config', 'print configuration'
   def config
@@ -31,8 +30,7 @@ class Kaban < Thor
 
   desc 'fetch <collection>', 'fetch raw documents'
   def fetch(collection_name = nil)
-    Repository.collections(name: collection_name).each do
-      |collection|
+    Repository.collections(name: collection_name).each do |collection|
       docs = Synchronizer.fetch collection: collection
       Workspace.save_raw docs: docs, collection: collection
     end
@@ -40,8 +38,7 @@ class Kaban < Thor
 
   desc 'map <collection>', 'apply mapping'
   def map(collection_name = nil)
-    Repository.collections(name: collection_name).each do
-      |collection|
+    Repository.collections(name: collection_name).each do |collection|
       raw_docs = Workspace.load_raw collection: collection
       mapping = Repository.load_mapping name: collection.mapper.mapping
       mapped_docs = Transformer.map collection: collection,
@@ -52,22 +49,16 @@ class Kaban < Thor
 
   desc 'index <collection>', 'index mapped documents'
   def index(collection_name = nil)
-    Repository.collections(name: collection_name).each do
-      |collection|
+    Repository.collections(name: collection_name).each do |collection|
       docs = Workspace.load_mapped collection: collection
       Indexer.index collection: collection, docs: docs
     end
-  end
-
-  desc 'init', 'init kaban repository'
-  def init
   end
 
   desc 'sync <collection>', 'fetch + map + index'
   def sync(collection_name = nil)
     fetch collection_name
     map collection_name
-    reset collection_name
     index collection_name
   end
 end
