@@ -1,5 +1,8 @@
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
+Documentation:
+  Enabled: false
+
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 50
