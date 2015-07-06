@@ -1,48 +1,51 @@
 GIT
-  remote: https://github.com/IluhaAndr/jira-ruby.git
-  revision: 5a6d1851fa8cda8848ad92e514d32f0d4b1ed3c7
+  remote: https://github.com/intridea/hashie.git
+  revision: 266bb799c6cb07b04268def0b49b8774beb4c9b1
+  specs:
+    hashie (3.4.2)
+
+GIT
+  remote: https://github.com/yarki/jira-ruby.git
+  revision: caaa843aa62e8c0d5931a32a0dcf57ff04c2f5a9
   specs:
     jira-ruby (0.1.10)
       activesupport
       oauth
 
-GIT
-  remote: https://github.com/intridea/hashie.git
-  revision: 59069f13ea067a319584a56674cc02de887b999f
-  specs:
-    hashie (3.2.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.4)
-      i18n (~> 0.6, >= 0.6.9)
+    activesupport (4.2.1)
+      i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
-      thread_safe (~> 0.1)
+      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    configatron (4.2.0)
-    elasticsearch (1.0.4)
-      elasticsearch-api (= 1.0.4)
-      elasticsearch-transport (= 1.0.4)
-    elasticsearch-api (1.0.4)
+    bson (3.0.1)
+    configatron (4.5.0)
+    elasticsearch (1.0.8)
+      elasticsearch-api (= 1.0.7)
+      elasticsearch-transport (= 1.0.7)
+    elasticsearch-api (1.0.7)
       multi_json
-    elasticsearch-transport (1.0.4)
+    elasticsearch-transport (1.0.7)
       faraday
       multi_json
-    faraday (0.9.0)
+    faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    i18n (0.6.11)
-    json (1.8.1)
-    minitest (5.4.0)
-    multi_json (1.10.1)
+    i18n (0.7.0)
+    json (1.8.2)
+    minitest (5.6.1)
+    mongo (2.0.2)
+      bson (~> 3.0)
+    multi_json (1.11.0)
     multipart-post (2.0.0)
     oauth (0.4.7)
-    rake (0.9.6)
-    retriable (1.4.1)
+    rake (10.4.2)
+    retriable (2.0.2)
     thor (0.19.1)
-    thread_safe (0.3.4)
-    tzinfo (1.2.1)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
 PLATFORMS
@@ -54,6 +57,7 @@ DEPENDENCIES
   hashie!
   jira-ruby!
   json
+  mongo
   rake
   retriable
   thor

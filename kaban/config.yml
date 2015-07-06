@@ -1,8 +1,10 @@
 core:
-    fetchers: ./kaban/fetchers
+    fetchers: ./kaban/extractors
+    extractors: ./kaban/extractors
 
 repository:
     collections: ./repository/collections
+    transformers: ./repository/transformers
     schemas: ./repository/schemas
     mappings: ./repository/mappings
     endpoints: ./repository/endpoints

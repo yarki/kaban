@@ -1,7 +1,11 @@
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+# rubocop --auto-gen-config
 
 Documentation:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 120
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?

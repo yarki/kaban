@@ -48,15 +48,18 @@ module Indexer
       host: configatron.env.elastic.host,
       log: configatron.env.elastic.logging
     )
-    body = docs.map do |doc|
-      {
-        index: {
-          _index: collection.name,
-          _type: collection.name,
-          data: doc
+    docs.each_slice(1000) do |slice|
+      puts 'bulk'
+      body = slice.map do |doc|
+        {
+          index: {
+            _index: collection.name,
+            _type: collection.name,
+            data: doc
+          }
         }
-      }
+      end
+      elastic.bulk body: body
     end
-    elastic.bulk body: body
   end
 end
